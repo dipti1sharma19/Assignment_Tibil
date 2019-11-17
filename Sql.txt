@@ -1,0 +1,6 @@
+> SELECT name FROM (SELECT id,salary,name FROM friends_table INNER JOIN
+> salary_table USING(id)) my_salary INNER JOIN (SELECT
+> friends_table.id,salary FROM friends_table INNER JOIN salary_table ON
+> friends_table.friend_id=salary_table.id) friend_salary on
+> my_salary.id=friend_salary.id and
+> my_salary.salary<friend_salary.salary ORDER BY friend_salary.salary
